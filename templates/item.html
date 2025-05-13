@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о товаре</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block breadcrumb %}
+        Товары / {{ item.name }}
+    {% endblock %}
+
+    {% block content %}
+        <h1>{{ item.name }}</h1>
+        <p>Количество: 
+            {% if item.quantity > 0 %}
+                {{ item.quantity }}
+            {% else %}
+                товар отсутствует
+            {% endif %}
+        </p>
+        <p>
+        <a href="{% url 'item_list' %}">Вернуться к списку товаров</a>
+        </p>
+        <a href="{% url 'home' %}">Вернуться на главную страницу</a>
+    {% endblock %}
+</body>
+</html>
