@@ -8,23 +8,25 @@
 <body>
     {% extends 'base.html' %}
 
-    {% block breadcrumb %}
-        Товары / {{ item.name }}
-    {% endblock %}
-
     {% block content %}
-        <h1>{{ item.name }}</h1>
-        <p>Количество: 
-            {% if item.quantity > 0 %}
-                {{ item.quantity }}
-            {% else %}
-                товар отсутствует
-            {% endif %}
-        </p>
-        <p>
-        <a href="{% url 'item_list' %}">Вернуться к списку товаров</a>
-        </p>
-        <a href="{% url 'home' %}">Вернуться на главную страницу</a>
-    {% endblock %}
+    <div class="container mt-5">
+    
+    <h1>{{ item.name }}</h1>
+
+    <p>Количество: 
+        {% if item.count > 0 %}
+            {{ item.count }}
+        {% else %}
+            товар отсутствует
+        {% endif %}
+    </p>
+
+    <div style="margin-top: 20px;">
+        <a href="{% url 'item_list' %}" class="btn btn-primary">Вернуться к списку товаров</a> <br> 
+        <a href="{% url 'home' %}" class="btn btn-secondary">Вернуться на главную страницу</a>
+    </div>
+</div>
+{% endblock %}
+
 </body>
 </html>

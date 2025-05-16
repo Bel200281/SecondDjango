@@ -1,21 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Item
 
-USER_DATA = {    
-    'first_name': 'Иван',    'middle_name':'Петрович',    
-    'last_name': 'Иванов',    
-    'phone': '8-923-600-01-02',    
+USER_DATA = {
+    'first_name': 'Иван',
+    'middle_name': 'Петрович',
+    'last_name': 'Иванов',
+    'phone': '8-923-600-01-02',
     'email': 'vasya@mail.ru'
-    }
-items = [    
-    {"id": 1, "name": "Кроссовки Adidas","quantity": 5},    
-    {"id": 2, "name": "Куртка кожаная", "quantity": 2},   
-    {"id": 3, "name": "Coca-Cola 1 литр", "quantity": 3},    
-    {"id": 4, "name": "Картофель фри", "quantity": 4},    
-    {"id": 5, "name": "Кепка", "quantity": 1},
-    ]
+}
 
-def test(request):    
+def test(request):
     return render(request, 'test_page.html')
 
 def home(request):
@@ -31,22 +26,19 @@ def about(request):
     """
 
     back_link = '<p><a href="/">Вернуться на главную страницу</a></p>'
-    
-    return HttpResponse(html_content + back_link)
 
+    return HttpResponse(html_content + back_link)
 
 def show_item(request, item_id):
     try:
-        item = next((item for item in items if item["id"] == int(item_id)), None)
-        if not item:
-            raise ValueError("Товар не найден")
-        
-        context = {'item': item}
-        return render(request, 'item.html', context)
-    except Exception as e:
-        return HttpResponse(f"{e}", status=404)
-    
+        item = Item.objects.get(id=item_id)
+        return render(request, 'item.html', {'item': item})
+    except Item.DoesNotExist:
+        return HttpResponse("Товар не найден.", status=404)
 
 def item_list(request):
-    context = {'items': items}
+    items = Item.objects.all().order_by('id')  # получаем все товары и сортируем по id
+    context = {
+        'items': items,
+    }
     return render(request, 'item_list.html', context)

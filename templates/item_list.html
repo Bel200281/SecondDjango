@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +8,27 @@
 <body>
     {% extends 'base.html' %}
 
-    {% block breadcrumb %}
-        Товары
-    {% endblock %}
-
     {% block content %}
-    <h1>Полный список товаров</h1>
-    <ol>
-        {% for item in items %}
-        <li>
-            <a href="{% url 'show_item' item.id %}">{{ item.name }}</a> (количество: {{ item.quantity }})
-        </li>
-
-
-        {% endfor %}
-    </ol>
-        <a href="{% url 'home' %}">Вернуться на главную страницу</a>
+    <div class="container mt-5">
+        <h1>Список товаров:</h1>
+        <ol>
+            {% for item in items %}
+                <li>
+                    <strong>Название:</strong> {{ item.name }}<br />
+                    <strong>Бренд:</strong> {{ item.brand }}<br />
+                    <strong>Кол-во:</strong> {{ item.count }} шт.<br/><br/>
+                    <a href="{% url 'show_item' item.id %}" class="btn btn-info">Подробнее о товаре</a>
+                    <br></br>
+                </li>
+            {% empty %}
+                <p>Нет товаров.</p>
+            {% endfor %}
+        </ol>
+        
+        <div style="margin-top: 20px;">
+            <a href="{% url 'home' %}" class="btn btn-secondary">Вернуться на главную страницу</a>
+        </div>
+    </div>
     {% endblock %}
 </body>
 </html>
