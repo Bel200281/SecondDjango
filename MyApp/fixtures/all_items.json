@@ -1,0 +1,52 @@
+[
+{
+    "model": "MyApp.item",
+    "pk": 1,
+    "fields": {
+        "name": "Кроссовки",
+        "brand": "abibas",
+        "description": "направлены на улиный стиль и моду\n",
+        "count": 10
+    }
+},
+{
+    "model": "MyApp.item",
+    "pk": 2,
+    "fields": {
+        "name": "Платье",
+        "brand": "Chanel",
+        "description": "платье лопок и мелланж, стильное",
+        "count": 5
+    }
+},
+{
+    "model": "MyApp.item",
+    "pk": 3,
+    "fields": {
+        "name": "Кепка",
+        "brand": "Good Day Jockey",
+        "description": "без подкладки, цвет черный, мужская",
+        "count": 8
+    }
+},
+{
+    "model": "MyApp.item",
+    "pk": 4,
+    "fields": {
+        "name": "Куртка кожаная",
+        "brand": "Ervins",
+        "description": "модель пошита из премиальной кожи",
+        "count": 2
+    }
+},
+{
+    "model": "MyApp.item",
+    "pk": 5,
+    "fields": {
+        "name": "Coca Cola 1 литр",
+        "brand": "CocaCola",
+        "description": "напитор от мирового производителя",
+        "count": 15
+    }
+}
+]
