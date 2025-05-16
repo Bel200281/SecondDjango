@@ -13,6 +13,7 @@
     
     <h1>{{ item.name }}</h1>
 
+    <p>Описание: {{ item.description|default:"Описание товара отсутствует." }}</p>
     <p>Количество: 
         {% if item.count > 0 %}
             {{ item.count }}
@@ -20,7 +21,6 @@
             товар отсутствует
         {% endif %}
     </p>
-
 </div>
 {% endblock %}
 

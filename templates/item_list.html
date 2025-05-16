@@ -18,6 +18,7 @@
                         <img src="..." class="card-img-top" alt="..."> <!-- Здесь можно подключить картинку товара -->
                         <div class="card-body">
                             <h5 class="card-title">{{ item.name }}</h5>
+                            <p class="card-text">{{ item.description|truncatewords_html:10 }}</p> 
                             <p class="card-text"><strong>Бренд:</strong> {{ item.brand }}</p>
                             <p class="card-text"><strong>Кол-во:</strong> {{ item.count }} шт.</p>
                             <a href="{% url 'show_item' item.id %}" class="btn btn-primary">Подробнее о товаре</a>
