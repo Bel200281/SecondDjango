@@ -11,22 +11,22 @@
     {% block content %}
     <div class="container mt-5">
         <h1>Список товаров:</h1>
-        <ol>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for item in items %}
-                <li>
-                    <strong>Название:</strong> {{ item.name }}<br />
-                    <strong>Бренд:</strong> {{ item.brand }}<br />
-                    <strong>Кол-во:</strong> {{ item.count }} шт.<br/><br/>
-                    <a href="{% url 'show_item' item.id %}" class="btn btn-info">Подробнее о товаре</a>
-                    <br></br>
-                </li>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="..."> <!-- Здесь можно подключить картинку товара -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <p class="card-text"><strong>Бренд:</strong> {{ item.brand }}</p>
+                            <p class="card-text"><strong>Кол-во:</strong> {{ item.count }} шт.</p>
+                            <a href="{% url 'show_item' item.id %}" class="btn btn-primary">Подробнее о товаре</a>
+                        </div>
+                    </div>
+                </div>
             {% empty %}
                 <p>Нет товаров.</p>
             {% endfor %}
-        </ol>
-        
-        <div style="margin-top: 20px;">
-            <a href="{% url 'home' %}" class="btn btn-secondary">Вернуться на главную страницу</a>
         </div>
     </div>
     {% endblock %}
