@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h1>О нас</h1>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Имя:</dt>
+        <dd class="col-sm-9">{{ user_data.first_name }}</dd>
+        
+        <dt class="col-sm-3">Отчество:</dt>
+        <dd class="col-sm-9">{{ user_data.middle_name }}</dd>
+        
+        <dt class="col-sm-3">Фамилия:</dt>
+        <dd class="col-sm-9">{{ user_data.last_name }}</dd>
+        
+        <dt class="col-sm-3">Телефон:</dt>
+        <dd class="col-sm-9">{{ user_data.phone }}</dd>
+        
+        <dt class="col-sm-3">Email:</dt>
+        <dd class="col-sm-9">{{ user_data.email }}</dd>
+    </dl>
+</div>
+{% endblock %}

@@ -17,17 +17,7 @@ def home(request):
     return render(request, 'home.html')
 
 def about(request):
-    html_content = f"""
-    <p>Имя: {USER_DATA['first_name']}<br>
-    Отчество: {USER_DATA['middle_name']}<br>
-    Фамилия: {USER_DATA['last_name']}<br>
-    Телефон: {USER_DATA['phone']}<br>
-    Email: {USER_DATA['email']}</p>
-    """
-
-    back_link = '<p><a href="/">Вернуться на главную страницу</a></p>'
-
-    return HttpResponse(html_content + back_link)
+    return render(request, 'about.html', {'user_data': USER_DATA})
 
 def show_item(request, item_id):
     try:
