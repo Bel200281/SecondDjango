@@ -16,7 +16,7 @@
             {% for item in items %}
                 <div class="col">
                     <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="..."> <!-- Здесь можно подключить картинку товара -->
+                        <img src="path/to/your/image.jpg" class="card-img-top" alt=""> <!-- Здесь можно подключить картинку товара -->
                         <div class="card-body">
                             <h5 class="card-title">{{ item.name }}</h5>
                             <p class="card-text">{{ item.description|truncatewords_html:10 }}</p> 

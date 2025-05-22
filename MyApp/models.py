@@ -5,4 +5,3 @@ class Item(models.Model):
    brand = models.CharField(max_length=100)
    description = models.TextField(blank=True, null=True)
    count = models.PositiveIntegerField() 
- 
