@@ -1,7 +1,9 @@
- .welcome-message{
-   baground: red;
- }
- 
+ .welcome-message {
+            color: red;
+            font-size: 24px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
  
 
  
