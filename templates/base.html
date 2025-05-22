@@ -7,21 +7,14 @@
     <title>Django App</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="{% url 'home' %}">Главная</a> |
-            <a href="{% url 'item_list' %}">Список товаров</a> |
-            <a href="{% url 'about' %}">О нас</a>
-        </nav>
-    </header>
+    {% include 'header.html' %}
 
     <main>
         {% block content %}{% endblock %}
     </main>
 
 <br></br>
-    <footer>
-        <h5>© 2025 My Django App</h5>
-    </footer>
-</body>
+
+     {% include 'footer.html' %}
+
 </html>
