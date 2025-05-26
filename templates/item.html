@@ -7,7 +7,7 @@
 </head>
 <body>
     {% extends 'base.html' %}
-
+    {% load static %}
     {% block content %}
     <div class="container mt-5">
     
@@ -18,9 +18,17 @@
         {% if item.count > 0 %}
             {{ item.count }}
         {% else %}
-            товар отсутствует
+            Товар отсутствует
         {% endif %}
     </p>
+    <h2>Доступные цвета:</h2>
+    <ul style="padding-left: 0; list-style-type: none;">
+        {% for color in item.colors.all %}
+            <li style="margin-bottom: 5px;">
+                <span class="color-box" style="background-color:{{ color.hex_code }};"></span>
+                {{ color.name }}
+            </li>
+        {% endfor %}
 </div>
 {% endblock %}
 

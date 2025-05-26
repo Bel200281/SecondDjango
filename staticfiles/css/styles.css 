@@ -1,0 +1,18 @@
+ .welcome-message{
+        color: red;
+        font-size: 24px;
+        font-style: italic;
+        margin-bottom: 20px;
+}
+.color-box{
+        background-color: inherit;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 2px;
+        margin-right: 5px;
+}
+ 
+
+ 
