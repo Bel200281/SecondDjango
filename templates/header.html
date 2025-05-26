@@ -1,5 +1,9 @@
 <header>
     <nav>
+        {% load static %}
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/logo.svg' %}" alt="Логотип сайта" width="50" height="50"/>
+        </a>
         <a href="{% url 'home' %}">Главная</a> |
         <a href="{% url 'item_list' %}">Список товаров</a> |
         <a href="{% url 'about' %}">О нас</a>
