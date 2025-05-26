@@ -21,13 +21,13 @@ def about(request):
 
 def show_item(request, item_id):
     try:
-        item = Item.objects.get(id=item_id)
+        item = Item.objects.prefetch_related('colors').get(id=item_id)
         return render(request, 'item.html', {'item': item})
     except Item.DoesNotExist:
         return HttpResponse("Товар не найден.", status=404)
 
 def item_list(request):
-    items = Item.objects.all().order_by('id')  # получаем все товары и сортируем по id
+    items = Item.objects.prefetch_related('colors').all().order_by('id')  # получаем все товары и сортируем по id
     context = {
         'items': items,
     }
